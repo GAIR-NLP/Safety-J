@@ -4,3 +4,5 @@ torch==2.1.2
 tqdm==4.66.2
 transformers==4.38.2
 vllm==0.3.3
+scikit-learn==1.5.1
+modelscope==1.16.0
