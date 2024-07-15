@@ -1,1 +1,1 @@
-# SAFETY-J: Evaluating Safety with Critique
+# Safety-J: Evaluating Safety with Critique
