@@ -43,5 +43,5 @@ pip install -r requirements.txt
 Safety-J is now available on huggingface-hub:
 | Model Name | HF Checkpoint                                                | Size    | License                                                      |
 | ---------- | ------------------------------------------------------------ | ------- | ------------------------------------------------------------ |
-| Safety-J (V1)     | [🤗 GAIR/autoj-13b](https://huggingface.co/GAIR/autoj-13b) | **13B** | [Llama 2](https://ai.meta.com/resources/models-and-libraries/llama-downloads/) |
-| Safety-J (V5)    |[🤗 GAIR/autoj-bilingual-6b](https://huggingface.co/GAIR/autoj-bilingual-6b) | **6B** | [Yi License](https://huggingface.co/01-ai/Yi-6B/blob/main/LICENSE) |
+| Safety-J (V1)     | [🤗 GAIR/safetyj-v1](https://huggingface.co/liuyx0903/Safety-J_v1) | **7B** | [Internlm2](https://huggingface.co/internlm/internlm2-chat-7b) |
+| Safety-J (V5)    |[🤗 GAIR/safetyj-v5](https://huggingface.co/liuyx0903/Safety-J_v5) | **7B** | [Internlm2](https://huggingface.co/internlm/internlm2-chat-7b) |
