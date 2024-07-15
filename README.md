@@ -41,7 +41,7 @@ pip install -r requirements.txt
 
 ### Model
 Safety-J is now available on huggingface-hub:
-| Model Name | HF Checkpoint                                                | Size    | License                                                      |
-| ---------- | ------------------------------------------------------------ | ------- | ------------------------------------------------------------ |
+| Model Name | HF Checkpoint                                                | Size | License                                                      |
+| ---------- | ------------------------------------------------------------ | :------: | ------------------------------------------------------------ |
 | Safety-J (V1)     | [🤗 GAIR/safetyj-v1](https://huggingface.co/liuyx0903/Safety-J_v1) | **7B** | [Internlm2](https://huggingface.co/internlm/internlm2-chat-7b) |
 | Safety-J (V5)    |[🤗 GAIR/safetyj-v5](https://huggingface.co/liuyx0903/Safety-J_v5) | **7B** | [Internlm2](https://huggingface.co/internlm/internlm2-chat-7b) |
