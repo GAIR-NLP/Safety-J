@@ -32,9 +32,9 @@ This is the official repository for
 ### Setup
 To begin using Safety-J, you need to install the required dependencies. You can do this by running the following command:
 ```bash
-https://github.com/HuaweiGair/LLM-Safety.git  
-conda create -n LLM-Safety python=3.10  
-conda activate LLM-Safety  
-cd LLM-Safety  
+https://github.com/GAIR-NLP/Safety-J.git 
+conda create -n Safety-J python=3.10  
+conda activate Safety-J
+cd Safety-J
 pip install -r requirements.txt
 ```
