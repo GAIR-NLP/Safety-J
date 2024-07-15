@@ -32,7 +32,7 @@ This is the official repository for
 ### Setup
 To begin using Safety-J, you need to install the required dependencies. You can do this by running the following command:
 ```bash
-https://github.com/GAIR-NLP/Safety-J.git 
+git clone https://github.com/GAIR-NLP/Safety-J.git 
 conda create -n Safety-J python=3.10  
 conda activate Safety-J
 cd Safety-J
