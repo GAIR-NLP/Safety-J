@@ -1,6 +1,6 @@
 # Safety-J: Evaluating Safety with Critique
 
-<p align="center"> <img src="images/circle.jpg" style="width: 75%;" id="title-icon">       </p>
+<p align="center"> <img src="images/circle.png" style="width: 75%;" id="title-icon">       </p>
 
 ## Contents
 
