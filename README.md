@@ -7,7 +7,7 @@ This is the official repository for
 ## Table of Contents
 
 - [Introduction](#introduction)
-- [How to use?](#how-to-use)
+- [Get started](#get-started)
   - [Setup](#setup)
   - [Model](#model)
   - [Data](#data)
@@ -15,7 +15,7 @@ This is the official repository for
   - [Submit your result](#submit-your-result)
 - [Citation](#citation)
 
-## Introduction
+## 📝Introduction
 
 <p align="center"> <img src="images/method.png" style="width: 100%;" id="title-icon">       </p>
 
@@ -42,8 +42,8 @@ This is the official repository for
 
 <p align="center"> <img src="images/meta-evaluation.png" style="width: 100%;" id="title-icon">       </p>
 
-## How to use?
-### Setup
+## 🚀Get Started
+### 🛠️Setup
 To begin using Safety-J, you need to install the required dependencies. You can do this by running the following command:
 ```bash
 git clone https://github.com/GAIR-NLP/Safety-J.git 
@@ -53,14 +53,15 @@ cd Safety-J
 pip install -r requirements.txt
 ```
 
-### Model
+### 🤖Model
 Safety-J is now available on huggingface-hub:
 | Model Name | HF Checkpoint                                                | Size | License                                                      |
 | ---------- | ------------------------------------------------------------ | :------: | ------------------------------------------------------------ |
 | Safety-J (V1)     | [🤗 GAIR/safetyj-v1](https://huggingface.co/liuyx0903/Safety-J_v1) | **7B** | [Internlm2](https://huggingface.co/internlm/internlm2-chat-7b) |
 | Safety-J (V5)    |[🤗 GAIR/safetyj-v5](https://huggingface.co/liuyx0903/Safety-J_v5) | **7B** | [Internlm2](https://huggingface.co/internlm/internlm2-chat-7b) |
+### 📊Data
 
-### Usage
+### 📘Usage
 Our implementation is based on [vllm-project/vllm](https://github.com/vllm-project/vllm). A complete example can be found in `codes/example.py`.
 
 **Step 1: Import necessary libraries**
