@@ -8,7 +8,7 @@ This is the official repository for
 
 - [Introduction](#-introduction)
 - [Get started](#-get-started)
-  - [Setup](#%F0%9F%9B%A0%EF%B8%8F-setup)
+  - [Setup](setup-section)
   - [Model](#-model)
   - [Data](#-data)
   - [Usage](#-usage)
