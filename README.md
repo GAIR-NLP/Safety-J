@@ -6,13 +6,13 @@ This is the official repository for
 
 ## 📋 Table of Contents
 
-- [Introduction](#introduction)
-- [Get started](#get-started)
-  - [Setup](#setup)
-  - [Model](#model)
-  - [Data](#data)
-  - [Usage](#usage)
-- [Citation](#citation)
+- [Introduction](#-introduction)
+- [Get started](#-get-started)
+  - [Setup](#-setup)
+  - [Model](#-model)
+  - [Data](#-data)
+  - [Usage](#-usage)
+- [Citation](#-citation)
 
 ## 📝 Introduction
 
