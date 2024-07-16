@@ -9,9 +9,9 @@ This is the official repository for
 - [Introduction](#introduction)
 - [How to use?](#how-to-use)
   - [Setup](#setup)
-  - [Load Data](#load-data)
-  - [Inference](#inference)
-  - [Evaluation](#evaluation)
+  - [Model](#model)
+  - [Data](#data)
+  - [Usage](#usage)
   - [Submit your result](#submit-your-result)
 - [Citation](#citation)
 
@@ -27,6 +27,20 @@ This is the official repository for
 - **Comprehensive Coverage**: Addresses a wide range of safety scenarios, from privacy concerns to ethical issues.
 - **Meta-evaluation Framework**: Includes an automated benchmark for assessing critique quality.
 - **State-of-the-art Performance**: Outperforms existing open-source models and strong proprietary models like GPT-4o in safety evaluation tasks.
+
+| Model | Generative | BeaverTails | DiaSafety | Jade | Flames | WildSafety | Average |
+|-------|:----------:|:-----------:|:---------:|:----:|:------:|:----------:|:-------:|
+| [Perspective](https://github.com/conversationai/perspectiveapi) | ❌ | 46.3 | 55.8 | 48.3 | 51.7 | 57.4 | 51.9 |
+| [Moderation](https://platform.openai.com/docs/guides/moderation) | ❌ | 43.6 | 63.8 | 53.0 | 56.2 | 51.3 | 53.6 |
+| [InternLM](https://github.com/InternLM/InternLM) | ✔️ | 80.4 | 54.0 | 92.7 | 53.3 | 78.5 | 71.8 |
+| [GPT-3.5](https://platform.openai.com/docs/models/gpt-3-5) | ✔️ | 81.9 | 52.3 | 89.0 | 51.0 | 73.2 | 69.5 |
+| [GPT-4](https://openai.com/research/gpt-4) | ✔️ | 77.2 | 65.4 | 96.8 | 65.3 | 77.0 | 76.3 |
+| [GPT-4o](https://openai.com/index/hello-gpt-4o) | ✔️ | 82.3 | 56.1 | 97.8 | 71.6 | 80.3 | 77.6 |
+| [ShieldLM 7B](https://huggingface.co/thu-coai/ShieldLM-7B-internlm2) | ✔️ | 84.0 | 67.9 | 96.4 | 62.3 | 77.9 | 77.7 |
+| [ShieldLM 14B](https://huggingface.co/thu-coai/ShieldLM-14B-qwen) | ✔️ | 83.7 | 71.6 | 96.6 | 63.7 | 78.3 | 78.8 |
+| [Safety-J (7B)](https://huggingface.co/liuyx0903/Safety-J_v5) | ✔️ | 84.3 | 71.4 | 98.6 | 74.0 | 92.2 | 84.1 |
+
+<p align="center"> <img src="images/meta-evaluation.png" style="width: 100%;" id="title-icon">       </p>
 
 ## How to use?
 ### Setup
@@ -45,3 +59,60 @@ Safety-J is now available on huggingface-hub:
 | ---------- | ------------------------------------------------------------ | :------: | ------------------------------------------------------------ |
 | Safety-J (V1)     | [🤗 GAIR/safetyj-v1](https://huggingface.co/liuyx0903/Safety-J_v1) | **7B** | [Internlm2](https://huggingface.co/internlm/internlm2-chat-7b) |
 | Safety-J (V5)    |[🤗 GAIR/safetyj-v5](https://huggingface.co/liuyx0903/Safety-J_v5) | **7B** | [Internlm2](https://huggingface.co/internlm/internlm2-chat-7b) |
+
+### Usage
+Our implementation is based on [vllm-project/vllm](https://github.com/vllm-project/vllm). A complete example can be found in `codes/example.py`.
+
+**Step 1: Import necessary libraries**
+
+```python
+import json
+import argparse
+from typing import List, Tuple,Dict
+from vllm import LLM, SamplingParams
+from sklearn.metrics import accuracy_score, recall_score, f1_score, precision_score, confusion_matrix
+```
+
+**Step 2: Load model**
+```python
+llm = LLM(model=args.model_path, trust_remote_code=True)
+```
+
+**Step 3: Load data**
+```python
+def load_data(file_path: str, lang: str) -> Tuple[List[str], List[str]]:
+    with open(file_path, 'r', encoding='utf-8') as file:
+        data = json.load(file)
+    
+    instructions = []
+    labels = []
+    
+    for item in data:
+        instruction = item.get('query', '')
+        response = item.get('response', '')
+        label = item.get('label', '')
+        query = create_query(instruction, response, lang)
+        instructions.append(query)
+        labels.append(label)
+    
+    return instructions, labels
+```
+
+**Step 4: Judgment generation**
+```python
+outputs = llm.generate(prompts, sampling_params)  
+y_true, y_pred, output_data = evaluate_outputs(outputs, labels, prompts, args.lang)
+```
+
+**Step 5: Calculate metrics**
+```python
+def calculate_metrics(y_true: List[int], y_pred: List[int]) -> Tuple[float, float, float, float, float]:
+    accuracy = round(accuracy_score(y_true, y_pred), 3)
+    precision = round(precision_score(y_true, y_pred), 3)
+    recall_unsafe = round(recall_score(y_true, y_pred, pos_label=1), 3)
+    recall_safe = round(recall_score(y_true, y_pred, pos_label=0), 3)
+    f1 = round(f1_score(y_true, y_pred), 3)
+    return accuracy, precision, recall_unsafe, recall_safe, f1
+```
+
+
