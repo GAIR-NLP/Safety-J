@@ -8,7 +8,7 @@ This is the official repository for
 
 - [Introduction](#-introduction)
 - [Get started](#-get-started)
-  - [Setup](#setup-section)
+  - [Setup](#setup)
   - [Model](#-model)
   - [Data](#-data)
   - [Usage](#-usage)
@@ -50,7 +50,7 @@ For the meta evaluation task, we assess models at both the critique level (Macro
 
 ## 🚀 Get Started
 
-### 🛠️ Setup {#setup-section}
+### 🛠️ Setup <a name="setup"></a>
 To begin using Safety-J, you need to install the required dependencies. You can do this by running the following command:
 ```bash
 git clone https://github.com/GAIR-NLP/Safety-J.git 
