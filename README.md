@@ -1,10 +1,10 @@
 # Safety-J: Evaluating Safety with Critique
 This is the official repository for 
 
-## 🔥News
+## 🔥 News
 - [2024/07/15] 
 
-## Table of Contents
+## 📋 Table of Contents
 
 - [Introduction](#introduction)
 - [Get started](#get-started)
@@ -12,10 +12,9 @@ This is the official repository for
   - [Model](#model)
   - [Data](#data)
   - [Usage](#usage)
-  - [Submit your result](#submit-your-result)
 - [Citation](#citation)
 
-## 📝Introduction
+## 📝 Introduction
 
 <p align="center"> <img src="images/method.png" style="width: 100%;" id="title-icon">       </p>
 
@@ -27,6 +26,11 @@ This is the official repository for
 - **Comprehensive Coverage**: Addresses a wide range of safety scenarios, from privacy concerns to ethical issues.
 - **Meta-evaluation Framework**: Includes an automated benchmark for assessing critique quality.
 - **State-of-the-art Performance**: Outperforms existing open-source models and strong proprietary models like GPT-4o in safety evaluation tasks.
+
+## 🏆 Leaderboard
+We release the benchmarking results on various safety-related datasets as a leaderboard.
+
+For the model accuracy evaluation, we test different models on five datasets: BeaverTails, DiaSafety, Jade, Flames, and WildSafety. The metric is the accuracy rate on each dataset, with an overall average (Avg) across all datasets. We report the results for various models, including large language models and specialized safety models. The "Generative" column indicates whether a model is capable of generating text (✔️) or if it's a non-generative model primarily used for classification(❌). 
 
 | Model | Generative | BeaverTails | DiaSafety | Jade | Flames | WildSafety | Average |
 |-------|:----------:|:-----------:|:---------:|:----:|:------:|:----------:|:-------:|
@@ -40,10 +44,12 @@ This is the official repository for
 | [ShieldLM 14B](https://huggingface.co/thu-coai/ShieldLM-14B-qwen) | ✔️ | 83.7 | 71.6 | 96.6 | 63.7 | 78.3 | 78.8 |
 | [Safety-J (7B)](https://huggingface.co/liuyx0903/Safety-J_v5) | ✔️ | 84.3 | 71.4 | 98.6 | 74.0 | 92.2 | 84.1 |
 
+
+For the meta evaluation task, we assess models at both the critique level (Macro) and the AIU (Atomic Information Unit) level (Micro). The metrics include precision (Meta-P), recall (Meta-R), and F1 score (Meta-F1) for both levels in English and Chinese evaluations. We evaluate various models on their ability to generate accurate critiques and AIU analyses.
 <p align="center"> <img src="images/meta-evaluation.png" style="width: 100%;" id="title-icon">       </p>
 
-## 🚀Get Started
-### 🛠️Setup
+## 🚀 Get Started
+### 🛠️ Setup
 To begin using Safety-J, you need to install the required dependencies. You can do this by running the following command:
 ```bash
 git clone https://github.com/GAIR-NLP/Safety-J.git 
@@ -53,15 +59,15 @@ cd Safety-J
 pip install -r requirements.txt
 ```
 
-### 🤖Model
+### 🤖 Model
 Safety-J is now available on huggingface-hub:
 | Model Name | HF Checkpoint                                                | Size | License                                                      |
 | ---------- | ------------------------------------------------------------ | :------: | ------------------------------------------------------------ |
 | Safety-J (V1)     | [🤗 GAIR/safetyj-v1](https://huggingface.co/liuyx0903/Safety-J_v1) | **7B** | [Internlm2](https://huggingface.co/internlm/internlm2-chat-7b) |
 | Safety-J (V5)    |[🤗 GAIR/safetyj-v5](https://huggingface.co/liuyx0903/Safety-J_v5) | **7B** | [Internlm2](https://huggingface.co/internlm/internlm2-chat-7b) |
-### 📊Data
+### 📊 Data
 
-### 📘Usage
+### 📘 Usage
 Our implementation is based on [vllm-project/vllm](https://github.com/vllm-project/vllm). A complete example can be found in `codes/example.py`.
 
 **Step 1: Import necessary libraries**
