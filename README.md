@@ -8,7 +8,7 @@ This is the official repository for
 
 - [Introduction](#-introduction)
 - [Get started](#-get-started)
-  - [Setup](#-setup)
+  - [Setup](##%F0%9F%9B%A0%EF%B8%8F-setup)
   - [Model](#-model)
   - [Data](#-data)
   - [Usage](#-usage)
@@ -49,6 +49,7 @@ For the meta evaluation task, we assess models at both the critique level (Macro
 <p align="center"> <img src="images/meta-evaluation.png" style="width: 100%;" id="title-icon">       </p>
 
 ## 🚀 Get Started
+
 ### 🛠️ Setup
 To begin using Safety-J, you need to install the required dependencies. You can do this by running the following command:
 ```bash
