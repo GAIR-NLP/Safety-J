@@ -1,5 +1,8 @@
-ray >= 2.9
-nvidia-ml-py
-vllm-nccl-cu12>=2.18,<2.19
-torch == 2.2.1
-xformers == 0.0.25
+Requests==2.32.3
+tiktoken==0.6.0
+torch==2.1.2
+tqdm==4.66.2
+transformers==4.38.2
+vllm==0.3.3
+scikit-learn==1.5.1
+modelscope==1.16.0
