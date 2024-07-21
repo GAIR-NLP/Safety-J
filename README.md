@@ -7,6 +7,7 @@ This is the official repository for
 ## 📋 Table of Contents
 
 - [Introduction](#-introduction)
+- [Leaderboard](#-leaderboard)
 - [Get started](#-get-started)
   - [Setup](#setup)
   - [Model](#-model)
