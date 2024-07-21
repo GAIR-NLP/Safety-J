@@ -75,16 +75,16 @@ This repository `/data` contains two types of test sets: label-level test sets a
 
 We have four label-level test sets, sourced from the following datasets:
 
-1. [BeaverTails](https://github.com/X-PLUG/BeaverTails)
+1. [BeaverTails](https://huggingface.co/datasets/PKU-Alignment/BeaverTails)
 2. [DiaSafety](https://github.com/thu-coai/DiaSafety)
-3. [JADE](https://github.com/JadeChung/JADE)
-4. [Flames](https://github.com/thu-coai/Flames)
+3. [JADE](https://github.com/whitzard-ai/jade-db)
+4. [Flames](https://github.com/AIFlames/Flames)
 
 
 Our critique-level test sets are divided into English and Chinese datasets, sourced from the following datasets:
 
 1. [DiaSafety](https://github.com/thu-coai/DiaSafety)
-2. [Flames](https://github.com/thu-coai/Flames)
+2. [Flames](https://github.com/AIFlames/Flames)
 
 For specific information about how these datasets are used in our test sets, please refer to [our paper]().
 
