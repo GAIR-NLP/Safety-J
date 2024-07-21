@@ -12,7 +12,10 @@ This is the official repository for
   - [Model](#-model)
   - [Data](#-data)
   - [Usage](#-usage)
+    - [Label-level Evaluation](#label-level-evaluation)
+    - [Critique-level Evaluation](#critique-level-evaluation)
 - [Citation](#-citation)
+
 
 ## 📝 Introduction
 
@@ -69,7 +72,15 @@ Safety-J is now available on huggingface-hub:
 ### 📊 Data
 
 ### 📘 Usage
-Our implementation is based on [vllm-project/vllm](https://github.com/vllm-project/vllm). A complete example can be found in `codes/example.py`.
+
+### Label-level Evaluation
+
+Our implementation is based on [vllm-project/vllm](https://github.com/vllm-project/vllm). To perform label-level evaluation, execute the following Shell script:
+
+```bash
+sh run_label_evaluation.sh
+```
+
 
 **Step 1: Import necessary libraries**
 
@@ -123,4 +134,93 @@ def calculate_metrics(y_true: List[int], y_pred: List[int]) -> Tuple[float, floa
     return accuracy, precision, recall_unsafe, recall_safe, f1
 ```
 
+### Critique-level evaluation
+To perform critique-level evaluation, execute the following Shell script:
+```bash
+sh run_critique_evaluation.sh
+```
+**Step 1: Import necessary libraries**
+```python
+import json
+import re
+import argparse
+from tqdm import tqdm
+from vllm import LLM, SamplingParams
+```
+
+**Step 2: Load evaluator**
+```python
+llm = LLM(model=args.evaluator_model_path, trust_remote_code=True, tensor_parallel_size=4)
+```
+
+**Step 3: Load data**
+```python
+def load_data(file_path):
+    with open(file_path, 'r', encoding='utf-8') as file:
+        data = json.load(file)
+    return data
+```
+
+**Step 4: Generate safety judgments**
+```python
+def analyze_with_evaluator(llm, queries, responses, langs, sampling_params):
+    prompts = [create_safety_prompt(query, response, lang) for query, response, lang in zip(queries, responses, langs)]
+    return llm.generate(prompts, sampling_params)
+```
+
+**Step 5: Process safety data**
+```python
+def process_safety_data(data, outputs, lang):
+    updated_data = []
+    for item, output in zip(data, outputs):
+        analysis, label = extract_analysis_and_label(output, lang)
+        updated_item = {
+            **item,
+            'critique': output.outputs[0].text.strip(),
+            'cleaned_critique': analysis,
+            'label': label
+        }
+        updated_data.append(updated_item)
+    return updated_data
+```
+
+**Step 6: Load LLM**
+```python
+qwen_llm = LLM(model=args.qwen_model_path, trust_remote_code=True, tensor_parallel_size=4)
+```
+
+**Step 7: Extract AIUs**
+```python
+def extract_aius(llm, data, sampling_params, lang):
+    contents = [create_aiu_prompt(item['cleaned_critique'], lang) for item in data]
+    outputs = llm.generate(contents, sampling_params)
+    
+    for item, output in zip(data, outputs):
+        aius_text = output.outputs[0].text.strip()
+        aius = [re.sub(r'^\d+\.\s*', '', aiu) for aiu in aius_text.split('\n')]
+        item['aius'] = aius
+    
+    return data
+```
+
+**Step 8: Calculate metrics**
+```python
+def calculate_metrics(llm, data, reference_data, sampling_params, lang):
+    recall_contents = []
+    precision_contents = []
+    
+    for item1, item in zip(data, reference_data):
+        for claim in item['aius']:
+            recall_contents.append(create_recall_prompt(item1['cleaned_critique'], claim, lang))
+        for claim in item1['aius']:
+            precision_contents.append(create_precision_prompt(item1['prompt'], item1['response'], claim, lang))
+
+    recall_outputs = llm.generate(recall_contents, sampling_params)
+    precision_outputs = llm.generate(precision_contents, sampling_params)
+
+    # Calculate recall, precision, and F1 score
+    # ...
+
+    return metrics
+```
 
