@@ -242,7 +242,7 @@ def calculate_metrics(llm, data, reference_data, sampling_params, lang):
     return metrics
 ```
 
-## Citation
+## 📚 Citation
 Please cite the repo or the paper if the model/code/data in this repo is helpful to you.
 
 ```
