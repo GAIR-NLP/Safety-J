@@ -97,42 +97,111 @@
                     <div class="content has-text-justified">
                         <p>We release the benchmarking results on various safety-related datasets as a leaderboard.</p>
                         <table class="table is-striped is-fullwidth">
-                            <thead>
-                                <tr>
-                                    <th>Model</th>
-                                    <th>Generative</th>
-                                    <th>BeaverTails</th>
-                                    <th>DiaSafety</th>
-                                    <th>Jade</th>
-                                    <th>Flames</th>
-                                    <th>WildSafety</th>
-                                    <th>Average</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Perspective</td>
-                                    <td>❌</td>
-                                    <td>46.3</td>
-                                    <td>55.8</td>
-                                    <td>48.3</td>
-                                    <td>51.7</td>
-                                    <td>57.4</td>
-                                    <td>51.9</td>
-                                </tr>
-                                <!-- Add more rows for other models -->
-                                <tr>
-                                    <td>Safety-J (7B)</td>
-                                    <td>✔️</td>
-                                    <td>84.3</td>
-                                    <td>71.4</td>
-                                    <td>98.6</td>
-                                    <td>74.0</td>
-                                    <td>92.2</td>
-                                    <td>84.1</td>
-                                </tr>
-                            </tbody>
-                        </table>
+  <thead>
+    <tr>
+      <th>Model</th>
+      <th>Generative</th>
+      <th>BeaverTails</th>
+      <th>DiaSafety</th>
+      <th>Jade</th>
+      <th>Flames</th>
+      <th>WildSafety</th>
+      <th>Average</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://github.com/conversationai/perspectiveapi">Perspective</a></td>
+      <td>❌</td>
+      <td>46.3</td>
+      <td>55.8</td>
+      <td>48.3</td>
+      <td>51.7</td>
+      <td>57.4</td>
+      <td>51.9</td>
+    </tr>
+    <tr>
+      <td><a href="https://platform.openai.com/docs/guides/moderation">Moderation</a></td>
+      <td>❌</td>
+      <td>43.6</td>
+      <td>63.8</td>
+      <td>53.0</td>
+      <td>56.2</td>
+      <td>51.3</td>
+      <td>53.6</td>
+    </tr>
+    <tr>
+      <td><a href="https://github.com/InternLM/InternLM">InternLM</a></td>
+      <td>✔️</td>
+      <td>80.4</td>
+      <td>54.0</td>
+      <td>92.7</td>
+      <td>53.3</td>
+      <td>78.5</td>
+      <td>71.8</td>
+    </tr>
+    <tr>
+      <td><a href="https://platform.openai.com/docs/models/gpt-3-5">GPT-3.5</a></td>
+      <td>✔️</td>
+      <td>81.9</td>
+      <td>52.3</td>
+      <td>89.0</td>
+      <td>51.0</td>
+      <td>73.2</td>
+      <td>69.5</td>
+    </tr>
+    <tr>
+      <td><a href="https://openai.com/research/gpt-4">GPT-4</a></td>
+      <td>✔️</td>
+      <td>77.2</td>
+      <td>65.4</td>
+      <td>96.8</td>
+      <td>65.3</td>
+      <td>77.0</td>
+      <td>76.3</td>
+    </tr>
+    <tr>
+      <td><a href="https://openai.com/index/hello-gpt-4o">GPT-4o</a></td>
+      <td>✔️</td>
+      <td>82.3</td>
+      <td>56.1</td>
+      <td>97.8</td>
+      <td>71.6</td>
+      <td>80.3</td>
+      <td>77.6</td>
+    </tr>
+    <tr>
+      <td><a href="https://huggingface.co/thu-coai/ShieldLM-7B-internlm2">ShieldLM 7B</a></td>
+      <td>✔️</td>
+      <td>84.0</td>
+      <td>67.9</td>
+      <td>96.4</td>
+      <td>62.3</td>
+      <td>77.9</td>
+      <td>77.7</td>
+    </tr>
+    <tr>
+      <td><a href="https://huggingface.co/thu-coai/ShieldLM-14B-qwen">ShieldLM 14B</a></td>
+      <td>✔️</td>
+      <td>83.7</td>
+      <td>71.6</td>
+      <td>96.6</td>
+      <td>63.7</td>
+      <td>78.3</td>
+      <td>78.8</td>
+    </tr>
+    <tr>
+      <td><a href="https://huggingface.co/liuyx0903/Safety-J_v5">Safety-J (7B)</a></td>
+      <td>✔️</td>
+      <td>84.3</td>
+      <td>71.4</td>
+      <td>98.6</td>
+      <td>74.0</td>
+      <td>92.2</td>
+      <td>84.1</td>
+    </tr>
+  </tbody>
+</table>
                     </div>
                 </div>
             </div>
