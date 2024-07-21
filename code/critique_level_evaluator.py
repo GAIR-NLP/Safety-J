@@ -1,13 +1,8 @@
-import os
 import json
 import re
 import argparse
 from tqdm import tqdm
 from vllm import LLM, SamplingParams
-
-# Set environment variables
-os.environ['CUDA_VISIBLE_DEVICES'] = "4,5,6,7"
-os.environ['RAY_memory_monitor_refresh_ms'] = '0'
 
 # Constants
 SYSTEM_PROMPT = "You are a helpful assistant.\n"
