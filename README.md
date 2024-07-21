@@ -71,6 +71,23 @@ Safety-J is now available on huggingface-hub:
 | Safety-J (V5)    |[🤗 GAIR/safetyj-v5](https://huggingface.co/liuyx0903/Safety-J_v5) | **7B** | [Internlm2](https://huggingface.co/internlm/internlm2-chat-7b) |
 ### 📊 Data
 
+This repository `/data` contains two types of test sets: label-level test sets and critique-level test sets.
+
+We have four label-level test sets, sourced from the following datasets:
+
+1. [BeaverTails](https://github.com/X-PLUG/BeaverTails)
+2. [DiaSafety](https://github.com/thu-coai/DiaSafety)
+3. [JADE](https://github.com/JadeChung/JADE)
+4. [Flames](https://github.com/thu-coai/Flames)
+
+
+Our critique-level test sets are divided into English and Chinese datasets, sourced from the following datasets:
+
+1. [DiaSafety](https://github.com/thu-coai/DiaSafety)
+2. [Flames](https://github.com/thu-coai/Flames)
+
+For specific information about how these datasets are used in our test sets, please refer to [our paper]().
+
 ### 📘 Usage
 
 ### Label-level Evaluation
@@ -224,3 +241,9 @@ def calculate_metrics(llm, data, reference_data, sampling_params, lang):
     return metrics
 ```
 
+## Citation
+Please cite the repo or the paper if the model/code/data in this repo is helpful to you.
+
+```
+
+```
