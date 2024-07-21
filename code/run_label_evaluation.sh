@@ -4,8 +4,7 @@
 LANG="en"
 
 # Set the paths
-# MODEL_PATH="/path/to/your/model"
-MODEL_PATH="/nas/shared/GAIR/yxzhen/internlm2_7b_chat_bilingual_version2_noaug_addition_filter_lr3e5_3epoch_dpo_with_version3_and_version4_noaug_addition_filter_lr5e8_1epoch_lr4e7_1epoch_lr4e8_1epoch"
+MODEL_PATH="/path/to/your/model"
 INPUT_PATH="../data/label_level/BeaverTails.json"
 OUTPUT_PATH="../results/label_level_output_${LANG}.json"
 

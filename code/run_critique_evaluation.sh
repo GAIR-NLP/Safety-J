@@ -5,10 +5,8 @@ LANG="en"
 
 # Define model paths as variables
 # You should set these paths according to your environment
-# EVALUATOR_MODEL_PATH="/path/to/evaluator/model"
-# QWEN_MODEL_PATH="/path/to/qwen/model"
-EVALUATOR_MODEL_PATH="/nas/shared/GAIR/yxzhen/internlm2_7b_chat_bilingual_version2_noaug_addition_filter_lr3e5_3epoch_dpo_with_version3_and_version4_noaug_addition_filter_lr5e8_1epoch_lr4e7_1epoch_lr4e8_1epoch"
-QWEN_MODEL_PATH="/nas/shared/GAIR/ckpts/Qwen/Qwen-72B-Chat"
+EVALUATOR_MODEL_PATH="/path/to/evaluator/model"
+QWEN_MODEL_PATH="/path/to/qwen/model"
 # Note: QWEN_MODEL_PATH can be replaced with the path to any other chat-based large language model
 
 # Set file paths based on language
