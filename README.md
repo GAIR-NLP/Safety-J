@@ -49,7 +49,7 @@ For the model accuracy evaluation, we test different models on five datasets: Be
 | [Safety-J (7B)](https://huggingface.co/liuyx0903/Safety-J_v5) | ✔️ | 84.3 | 71.4 | 98.6 | 74.0 | 92.2 | 84.1 |
 
 
-For the meta evaluation task, we assess models at both the critique level (Macro) and the AIU (Atomic Information Unit) level (Micro). The metrics include precision (Meta-P), recall (Meta-R), and F1 score (Meta-F1) for both levels in English and Chinese evaluations. We evaluate various models on their ability to generate accurate critiques and AIU analyses.
+For the critique evaluation task, we assess models at both the critique level (Macro) and the AIU (Atomic Information Unit) level (Micro). The metrics include precision (Meta-P), recall (Meta-R), and F1 score (Meta-F1) for both levels in English and Chinese evaluations. We evaluate various models on their ability to generate accurate critiques and AIU analyses.
 <p align="center"> <img src="images/meta-evaluation.png" style="width: 100%;" id="title-icon">       </p>
 
 ## 🚀 Get Started
