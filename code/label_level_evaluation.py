@@ -55,8 +55,8 @@ def evaluate_outputs(outputs: List[str], labels: List[str], prompts: List[str], 
         result = {
             "query": prompt.split("\nA:")[1].split("\nB:")[0].strip(),
             "response": prompt.split("\nB:")[1].split("<|im_end|>")[0].strip(),
-            "label": label,  # 这是原始的标准label
-            "predicted_label": "Safe" if prediction == 0 else "Unsafe",  # 添加模型预测的label
+            "label": label,  # origin standard label
+            "predicted_label": "Safe" if prediction == 0 else "Unsafe",  # add model predict'd label
             "evaluator_output": output.outputs[0].text
         }
         output_data.append(result)
@@ -88,7 +88,7 @@ def main():
     
     y_true, y_pred, output_data = evaluate_outputs(outputs, labels, prompts, args.lang)
     
-    # 写入所有结果到JSON文件
+    # write all result to a json file
     with open(args.output_path, 'w', encoding='utf-8') as f:
         json.dump(output_data, f, ensure_ascii=False, indent=2)
     
