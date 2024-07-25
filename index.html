@@ -1,197 +1,278 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Safety-J: Evaluating Safety with Critique</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <script src="https://kit.fontawesome.com/4ac40a47d1.js" crossorigin="anonymous"></script>
-    <style>
-        .publication-title {
-            font-size: 2.5rem !important;
-        }
-        .publication-authors {
-            font-size: 1.2rem;
-        }
-        .author-block {
-            display: inline-block;
-            margin-right: 10px;
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Safety-J: Evaluating Safety with Critique">
+  <meta name="keywords" content="LLMs, Generation, Evaluation">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Safety-J: Evaluating Safety with Critique</title>
+
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+  <script type="text/javascript" src="static/js/sort-table.js" defer></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/icon.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
 </head>
 <body>
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </a>
-        </div>
-        <div class="navbar-menu">
-            <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-                <a class="navbar-item" href="https://github.com/GAIR-NLP/Safety-J">
-                    <span class="icon">
-                        <i class="fab fa-github"></i>
-                    </span>
-                </a>
-            </div>
-        </div>
-    </nav>
 
-    <section class="section">
-        <div class="container is-max-desktop">
-            <div class="columns is-centered">
-                <div class="column has-text-centered">
-                    <h1 class="title is-1 publication-title">
-                        Safety-J: Evaluating Safety with Critique
-                    </h1>
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://github.com/GAIR-NLP/">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://gair-nlp.github.io/auto-j/">
+            Auto-J
+          </a>
+          <a class="navbar-item" href="https://github.com/GAIR-NLP/MetaCritique">
+            MetaCritique
+          </a>
+          <a class="navbar-item" href="https://github.com/GAIR-NLP/OPO">
+            OPO
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Safety-J: Evaluating Safety with Critique</h1>
+          <div class="is-size-5 publication-authors">
+                        <span class="author-block"><a href="https://github.com/yxliu0903">Yixiu Liu*</a><sup>1, 3, 4</sup>,</span>
+                        <span class="author-block"><a href="https://github.com/zeetc">Yuxiang Zheng*</a><sup>1, 3, 4</sup>,</span>
+                        <span class="author-block"><a href="https://shijie-xia.github.io/">Shijie Xia</a><sup>1, 3</sup>,</span>
+                        <span class="author-block"><a href="https://github.com/StarWalkin">Yuan Guo</a><sup>1</sup>,</span>
+                        <span class="author-block"><a href="http://jiajun.org.cn/">Jiajun Li</a><sup>4</sup>,</span>
+                        <span class="author-block"><a href="https://dblp.org/pid/186/6867.html">Yi Tu</a><sup>4</sup>,</span>
+                        <span class="author-block"><a href="https://www.linkedin.com/in/chaoling-s-915289131/">Chaoling Song</a><sup>4</sup>,</span>
+                        <span class="author-block"><a href="http://pfliu.com/">Pengfei Liu</a><sup>1, 2, 3+</sup></span>
+                    </div>
                     <div class="is-size-5 publication-authors">
-                        <span class="author-block">Author 1,</span>
-                        <span class="author-block">Author 2,</span>
-                        <span class="author-block">Author 3</span>
+                        <span class="author-block"><sup>1</sup>Shanghai Jiao Tong University,</span>
+                        <span class="author-block"><sup>2</sup>Shanghai Artificial Intelligence Laboratory,</span>
+                        <span class="author-block"><sup>3</sup>Generative AI Research Lab (GAIR),</span>
+                        <span class="author-block"><sup>4</sup>Huawei Technologies Ltd.</span>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <section class="section">
-        <div class="container is-max-desktop">
-            <div class="columns is-centered">
-                <div class="column is-four-fifths">
-                    <div class="content has-text-centered">
-                        <img src="images/method.png" alt="Safety-J Method" style="width:100%;">
+                    <div class="is-size-5 publication-authors">
+                      
+                      <span class="author-block"><sup>*</sup>Co-first authors</span>
+                      <span class="author-block"><sup>+</sup>Corresponding authors</span>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        
 
-    <section class="section">
-        <div class="container is-max-desktop">
-            <div class="columns is-centered">
-                <div class="column is-four-fifths">
-                    <h2 class="title is-3">📝 Introduction</h2>
-                    <div class="content has-text-justified">
-                        <p><strong>Safety-J</strong> is an advanced bilingual (English and Chinese) safety evaluator designed to assess the safety of content generated by Large Language Models (LLMs). It provides detailed critiques and judgments, setting a new standard in AI content safety evaluation. It is featured with:</p>
-                        <ul>
-                            <li><strong>Bilingual Capability:</strong> Evaluates content in both English and Chinese.</li>
-                            <li><strong>Critique-based Judgment:</strong> Offers detailed critiques alongside safety classifications.</li>
-                            <li><strong>Iterative Preference Learning:</strong> Continuously improves through an innovative iterative learning process.</li>
-                            <li><strong>Comprehensive Coverage:</strong> Addresses a wide range of safety scenarios, from privacy concerns to ethical issues.</li>
-                            <li><strong>Meta-evaluation Framework:</strong> Includes an automated benchmark for assessing critique quality.</li>
-                            <li><strong>State-of-the-art Performance:</strong> Outperforms existing open-source models and strong proprietary models like GPT-4o in safety evaluation tasks.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        <div class="column has-text-centered">
+          <div class="publication-links">
+            <!-- PDF Link. -->
+            <span class="link-block">
+              <a href="https://arxiv.org/pdf/" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                    <i class="fas fa-file-pdf"></i>
+                </span>
+                <span>Paper</span>
+              </a>
+            </span>
+            <span class="link-block">
+              <a href="https://github.com/GAIR-NLP/Safety-J" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                    <i class="fab fa-github"></i>
+                </span>
+                <span>Code</span>
+                </a>
+            </span>
+            <!-- Model Link. -->
+            <span class="link-block">
+              <a href="https://huggingface.co/" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                  <p style="font-size:18px">🤗</p>
+                </span>
+                <span>Models</span>
+              </a>
+            </span>
+            <!-- Leaderboard Link. -->
+            <span class="link-block">
+              <a href="#leaderboard" class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                  <p style="font-size:18px">🏟️</p>
+                </span>
+                <span>Leaderboard</span>
+              </a>
+            </span>
+            <!-- Twitter Link. -->
+<!--             <span class="link-block">
+              <a href="https://x.com/_akhaliq/status/1803265217826107588" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                    <i class="fab fa-twitter"></i>
+                </span>
+                <span>Twitter by AK</span>
+              </a>
+            </span> -->
+          </div>
 
-    <section class="section">
-        <div class="container is-max-desktop">
-            <div class="columns is-centered">
-                <div class="column is-four-fifths">
-                    <h2 class="title is-3">🏆 Leaderboard</h2>
-                    <div class="content has-text-justified">
-                        <p>We release the benchmarking results on various safety-related datasets as a leaderboard.</p>
-                        <table class="table is-striped is-fullwidth">
-  <thead>
-    <tr>
-      <th>Model</th>
-      <th>Generative</th>
-      <th>BeaverTails</th>
-      <th>DiaSafety</th>
-      <th>Jade</th>
-      <th>Flames</th>
-      <th>WildSafety</th>
-      <th>Average</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href="https://github.com/conversationai/perspectiveapi">Perspective</a></td>
-      <td>❌</td>
-      <td>46.3</td>
-      <td>55.8</td>
-      <td>48.3</td>
-      <td>51.7</td>
-      <td>57.4</td>
-      <td>51.9</td>
-    </tr>
-    <tr>
-      <td><a href="https://platform.openai.com/docs/guides/moderation">Moderation</a></td>
-      <td>❌</td>
-      <td>43.6</td>
-      <td>63.8</td>
-      <td>53.0</td>
-      <td>56.2</td>
-      <td>51.3</td>
-      <td>53.6</td>
-    </tr>
-    <tr>
-      <td><a href="https://github.com/InternLM/InternLM">InternLM</a></td>
-      <td>✔️</td>
-      <td>80.4</td>
-      <td>54.0</td>
-      <td>92.7</td>
-      <td>53.3</td>
-      <td>78.5</td>
-      <td>71.8</td>
-    </tr>
-    <tr>
-      <td><a href="https://platform.openai.com/docs/models/gpt-3-5">GPT-3.5</a></td>
-      <td>✔️</td>
-      <td>81.9</td>
-      <td>52.3</td>
-      <td>89.0</td>
-      <td>51.0</td>
-      <td>73.2</td>
-      <td>69.5</td>
-    </tr>
-    <tr>
-      <td><a href="https://openai.com/research/gpt-4">GPT-4</a></td>
-      <td>✔️</td>
-      <td>77.2</td>
-      <td>65.4</td>
-      <td>96.8</td>
-      <td>65.3</td>
-      <td>77.0</td>
-      <td>76.3</td>
-    </tr>
-    <tr>
-      <td><a href="https://openai.com/index/hello-gpt-4o">GPT-4o</a></td>
-      <td>✔️</td>
-      <td>82.3</td>
-      <td>56.1</td>
-      <td>97.8</td>
-      <td>71.6</td>
-      <td>80.3</td>
-      <td>77.6</td>
-    </tr>
-    <tr>
-      <td><a href="https://huggingface.co/thu-coai/ShieldLM-7B-internlm2">ShieldLM 7B</a></td>
-      <td>✔️</td>
-      <td>84.0</td>
-      <td>67.9</td>
-      <td>96.4</td>
-      <td>62.3</td>
-      <td>77.9</td>
-      <td>77.7</td>
-    </tr>
-    <tr>
-      <td><a href="https://huggingface.co/thu-coai/ShieldLM-14B-qwen">ShieldLM 14B</a></td>
-      <td>✔️</td>
-      <td>83.7</td>
-      <td>71.6</td>
-      <td>96.6</td>
-      <td>63.7</td>
-      <td>78.3</td>
-      <td>78.8</td>
-    </tr>
-    <tr>
-      <td><a href="https://huggingface.co/liuyx0903/Safety-J_v5">Safety-J (7B)</a></td>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- <section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <div class="content has-text-centered">
+          <img src="images/meta-evaluation.jpg" width=100%/>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">🚀 Brief Introduction</h2>
+        <div class="content has-text-justified">
+          <p>
+            Safety-J is an advanced bilingual (English and Chinese) safety evaluator designed to assess the safety of content generated by Large Language Models (LLMs). It provides detailed critiques and judgments, setting a new standard in AI content safety evaluation. It is featured with:
+          </p>
+
+          <div align="center">
+            <img src="images/method.png" width=100%/>
+          </div>
+            
+
+          <ul>
+              
+
+            <li><b>Bilingual Capability: </b>Evaluates content in both English and Chinese.</li>
+            <li><b>Critique-based Judgment: </b>Offers detailed critiques alongside safety classifications.</li>
+            <li><b>Iterative Preference Learning: </b>Continuously improves through an innovative iterative learning process.</li>
+            <li><b>Comprehensive Coverage: </b>Addresses a wide range of safety scenarios, from privacy concerns to ethical issues.</li>
+            <li><b>Meta-evaluation Framework: </b>Includes an automated benchmark for assessing critique quality.</li>
+            <li><b>State-of-the-art Performance: </b>Outperforms existing open-source models and strong proprietary models like GPT-4o in safety evaluation tasks.</li>
+          </ul>
+
+        
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 id="leaderboard" class="title is-3">🏆 Leaderboard</h2>
+        <div class="content">
+
+          <div class="content has-text-justified">
+            <p>
+              We release the benchmarking results on various safety-related datasets as a leaderboard.
+            </p>
+            <p>
+              For the model accuracy evaluation, we test different models on five datasets: BeaverTails, DiaSafety, Jade, Flames, and WildSafety. The metric is the accuracy rate on each dataset, with an overall average (Avg) across all datasets. We report the results for various models, including large language models and specialized safety models. The "Generative" column indicates whether a model is capable of generating text (✔️) or if it's a non-generative model primarily used for classification(❌).
+            </p>
+            
+          </div>
+
+          
+          
+          <div class="model-labels-container">
+            <span class="leaderboard-label" style="background-color: rgba(249, 242, 248, 1);">Open-Source</span>
+            <span class="leaderboard-label" style="background-color: rgba(117, 209, 215, 0.1);">Proprietary</span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <div style="overflow-x: auto;">
+          <!-- Validation Set Leaderboard -->
+          <div style="display: flex;" class="is-flex is-justify-content-center">
+
+            <table id="table1" class="table" style="width: 71%">
+              <tr>
+                <td style="min-width: 160px;"><strong>Model</strong></td>
+                <td><strong>Generative</strong></td>
+                <td><strong>BeaverTails</strong></td>
+                <td><strong>DiaSafety</strong></td>
+                <td><strong>Jade</strong></td>
+                <td><strong>Flames</strong></td>
+                <td><strong>WildSafety</strong></td>
+                <td><strong>Average</strong></td>
+              </tr>
+              <tr style="background-color: rgba(249, 242, 248, 1);">
+      <td style="text-align: left;">
+        <a href="https://huggingface.co/liuyx0903/Safety-J_v5">
+          <b>Safety-J (7B)</b>
+        </a>
+      </td>
       <td>✔️</td>
       <td>84.3</td>
       <td>71.4</td>
@@ -200,66 +281,463 @@
       <td>92.2</td>
       <td>84.1</td>
     </tr>
-  </tbody>
-</table>
-                    </div>
-                </div>
-            </div>
+    <tr style="background-color: rgba(249, 242, 248, 1);">
+      <td style="text-align: left;">
+        <a href="https://huggingface.co/thu-coai/ShieldLM-14B-qwen">
+          <b>ShieldLM 14B</b>
+        </a>
+      </td>
+      <td>✔️</td>
+      <td>83.7</td>
+      <td>71.6</td>
+      <td>96.6</td>
+      <td>63.7</td>
+      <td>78.3</td>
+      <td>78.8</td>
+    </tr>
+    <tr style="background-color: rgba(249, 242, 248, 1);">
+      <td style="text-align: left;">
+        <a href="https://huggingface.co/thu-coai/ShieldLM-7B-internlm2">
+          <b>ShieldLM 7B</b>
+        </a>
+      </td>
+      <td>✔️</td>
+      <td>84.0</td>
+      <td>67.9</td>
+      <td>96.4</td>
+      <td>62.3</td>
+      <td>77.9</td>
+      <td>77.7</td>
+    </tr>
+    <tr style="background-color: rgba(117, 209, 215, 0.1);">
+      <td style="text-align: left;">
+        <a href="https://openai.com/index/hello-gpt-4o">
+          <b>GPT-4o</b>
+        </a>
+      </td>
+      <td>✔️</td>
+      <td>82.3</td>
+      <td>56.1</td>
+      <td>97.8</td>
+      <td>71.6</td>
+      <td>80.3</td>
+      <td>77.6</td>
+    </tr>
+    <tr style="background-color: rgba(117, 209, 215, 0.1);">
+      <td style="text-align: left;">
+        <a href="https://openai.com/research/gpt-4">
+          <b>GPT-4</b>
+        </a>
+      </td>
+      <td>✔️</td>
+      <td>77.2</td>
+      <td>65.4</td>
+      <td>96.8</td>
+      <td>65.3</td>
+      <td>77.0</td>
+      <td>76.3</td>
+    </tr>
+    <tr style="background-color: rgba(249, 242, 248, 1);">
+      <td style="text-align: left;">
+        <a href="https://github.com/InternLM/InternLM">
+          <b>InternLM</b>
+        </a>
+      </td>
+      <td>✔️</td>
+      <td>80.4</td>
+      <td>54.0</td>
+      <td>92.7</td>
+      <td>53.3</td>
+      <td>78.5</td>
+      <td>71.8</td>
+    </tr>
+    <tr style="background-color: rgba(117, 209, 215, 0.1);">
+      <td style="text-align: left;">
+        <a href="https://platform.openai.com/docs/models/gpt-3-5">
+          <b>GPT-3.5</b>
+        </a>
+      </td>
+      <td>✔️</td>
+      <td>81.9</td>
+      <td>52.3</td>
+      <td>89.0</td>
+      <td>51.0</td>
+      <td>73.2</td>
+      <td>69.5</td>
+    </tr>
+    <tr style="background-color: rgba(117, 209, 215, 0.1);">
+      <td style="text-align: left;">
+        <a href="https://platform.openai.com/docs/guides/moderation">
+          <b>Moderation</b>
+        </a>
+      </td>
+      <td>❌</td>
+      <td>43.6</td>
+      <td>63.8</td>
+      <td>53.0</td>
+      <td>56.2</td>
+      <td>51.3</td>
+      <td>53.6</td>
+    </tr>
+    <tr style="background-color: rgba(117, 209, 215, 0.1);">
+      <td style="text-align: left;">
+        <a href="https://github.com/conversationai/perspectiveapi">
+          <b>Perspective</b>
+        </a>
+      </td>
+      <td>❌</td>
+      <td>46.3</td>
+      <td>55.8</td>
+      <td>48.3</td>
+      <td>51.7</td>
+      <td>57.4</td>
+      <td>51.9</td>
+    </tr>
+            </table>
+        
+            
+          </div>
         </div>
-    </section>
 
-    <section class="section">
-        <div class="container is-max-desktop">
-            <div class="columns is-centered">
-                <div class="column is-four-fifths">
-                    <h2 class="title is-3">🚀 Get Started</h2>
-                    <div class="content has-text-justified">
-                        <h3 class="title is-4">🛠️ Setup</h3>
-                        <pre><code>git clone https://github.com/GAIR-NLP/Safety-J.git 
-conda create -n Safety-J python=3.10  
-conda activate Safety-J
-cd Safety-J
-pip install -r requirements.txt</code></pre>
-                        
-                        <h3 class="title is-4">🤖 Model</h3>
-                        <p>Safety-J is now available on huggingface-hub:</p>
-                        <table class="table is-striped is-fullwidth">
-                            <thead>
-                                <tr>
-                                    <th>Model Name</th>
-                                    <th>HF Checkpoint</th>
-                                    <th>Size</th>
-                                    <th>License</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Safety-J (V1)</td>
-                                    <td><a href="https://huggingface.co/liuyx0903/Safety-J_v1">🤗 GAIR/safetyj-v1</a></td>
-                                    <td>7B</td>
-                                    <td><a href="https://huggingface.co/internlm/internlm2-chat-7b">Internlm2</a></td>
-                                </tr>
-                                <tr>
-                                    <td>Safety-J (V5)</td>
-                                    <td><a href="https://huggingface.co/liuyx0903/Safety-J_v5">🤗 GAIR/safetyj-v5</a></td>
-                                    <td>7B</td>
-                                    <td><a href="https://huggingface.co/internlm/internlm2-chat-7b">Internlm2</a></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+      </div>
+    </div>
+  </div>
+<div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        
+        <div class="content">
 
-    <footer class="footer">
-        <div class="content has-text-centered">
+          <div class="content has-text-justified">
             <p>
-                <strong>Safety-J</strong> by <a href="https://github.com/GAIR-NLP">GAIR-NLP</a>. The source code is licensed
-                <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
+              For the critique evaluation task, we assess models at both the critique level (Macro) and the AIU (Atomic Information Unit) level (Micro). The metrics include precision (Meta-P), recall (Meta-R), and F1 score (Meta-F1) for both levels in English and Chinese evaluations. We evaluate various models on their ability to generate accurate critiques and AIU analyses.
             </p>
+            
+          </div>
+
         </div>
-    </footer>
+      </div>
+    </div>
+  </div>
+<div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <div class="content has-text-centered">
+          <img src="images/meta-evaluation.png" width=100%/>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Contact. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">📬 Contact</h2>
+        <div class="content has-text-justified">
+          <p>
+            If you have any questions regarding this project, feel free to directly submit a <a href="https://github.com/GAIR-NLP/Safety-J">github issue</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code></code></pre>
+  </div>
+</section>
+
+
+<footer class="footer centered-footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- 
+<script>
+  function changeButtonText() {
+    var button = document.getElementById('toggleButton');
+    if (button.innerHTML.includes("Validation Set Leaderboard")) {
+      button.innerHTML = "<b style='font-size: larger;'>Test Set Leaderboard</b> (Click to Switch)";
+    } else {
+      button.innerHTML = "<b style='font-size: larger;'>Validation Set Leaderboard</b> (Click to Switch)";
+    }
+  }
+
+  function sortTableByOverall(tableId) {
+    var table = document.getElementById(tableId);
+    var rows = Array.from(table.rows).slice(1);
+
+    rows.sort(function(a, b) {
+      var cellA = parseFloat(a.cells[3].innerText);
+      var cellB = parseFloat(b.cells[3].innerText);
+      return cellB - cellA;
+    });
+
+    rows.forEach(function(row) {
+      table.tBodies[0].appendChild(row);
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    sortTableByOverall('table1');
+    sortTableByOverall('table2');
+  });
+
+  function toggleTables() {
+    var table1 = document.getElementById('table1');
+    var table2 = document.getElementById('table2');
+    table1.classList.toggle('hidden');
+    table2.classList.toggle('hidden');
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('toggleButton').addEventListener('click', toggleTables);
+  });
+
+  function addMedalsToLeaderboard(tableId) {
+    const table = document.getElementById(tableId);
+    const rows = Array.from(table.rows).slice(1);
+
+    rows.sort((a, b) => parseFloat(b.cells[3].innerText) - parseFloat(a.cells[3].innerText));
+
+    rows.forEach((row, index) => {
+      const modelNameCell = row.cells[0];
+      let medal = '';
+      if (index === 0) {
+        medal = ' 🥇';
+      } else if (index === 1) {
+        medal = ' 🥈';
+      } else if (index === 2) {
+        medal = ' 🥉';
+      }
+      modelNameCell.innerHTML += medal;
+    });
+
+    rows.forEach(row => {
+      table.tBodies[0].appendChild(row);
+    });
+  }
+
+  function calculateMedalCounts() {
+    const table = document.getElementById('table2');
+    const rows = Array.from(table.rows).slice(1);
+
+    const medalCounts = {};
+
+    rows.forEach(row => {
+      const modelName = row.cells[0].innerText.trim().replace(/ 🥇| 🥈| 🥉/g, '');
+      if (!medalCounts[modelName]) {
+        medalCounts[modelName] = { gold: 0, silver: 0, bronze: 0, overall: parseFloat(row.cells[3].innerText) };
+      }
+    });
+
+    const disciplines = ['Math', 'Physics', 'Chemistry', 'Biology', 'Geography', 'Astronomy', 'CS'];
+    disciplines.forEach((discipline, index) => {
+      const scores = rows.map(row => ({
+        model: row.cells[0].innerText.trim().replace(/ 🥇| 🥈| 🥉/g, ''),
+        score: parseFloat(row.cells[4 + index].innerText)
+      }));
+      scores.sort((a, b) => b.score - a.score);
+      
+      if (scores.length > 0) medalCounts[scores[0].model].gold += 1;
+      if (scores.length > 1) medalCounts[scores[1].model].silver += 1;
+      if (scores.length > 2) medalCounts[scores[2].model].bronze += 1;
+    });
+
+    const sortedMedalCounts = Object.entries(medalCounts).sort((a, b) => {
+      if (b[1].gold !== a[1].gold) return b[1].gold - a[1].gold;
+      if (b[1].silver !== a[1].silver) return b[1].silver - a[1].silver;
+      if (b[1].bronze !== a[1].bronze) return b[1].bronze - a[1].bronze;
+      return b[1].overall - a[1].overall;
+    });
+
+    return sortedMedalCounts;
+  }
+
+  function generateMedalLeaderboard() {
+    const sortedMedalCounts = calculateMedalCounts();
+
+    const table = document.createElement('table');
+    table.classList.add('table', 'is-striped', 'is-hoverable');
+
+    const headerRow = table.insertRow();
+    headerRow.classList.add('header-row');
+
+    ['Rank', 'Model', 'Gold', 'Silver', 'Bronze', 'Total', 'Overall'].forEach((text, index) => {
+      const cell = document.createElement('th');
+      cell.classList.add('header-cell');
+
+      if (text === 'Gold') {
+        const img = document.createElement('img');
+        img.src = 'static/images/gold_medal.png';
+        img.classList.add('medal-icon');
+        cell.appendChild(img);
+      } else if (text === 'Silver') {
+        const img = document.createElement('img');
+        img.src = 'static/images/silver_medal.png';
+        img.classList.add('medal-icon');
+        cell.appendChild(img);
+      } else if (text === 'Bronze') {
+        const img = document.createElement('img');
+        img.src = 'static/images/bronze_medal.png';
+        img.classList.add('medal-icon');
+        cell.appendChild(img);
+      } else {
+        cell.textContent = text;
+      }
+    
+      headerRow.appendChild(cell);
+    });
+
+    sortedMedalCounts.forEach(([model, counts], index) => {
+      const row = table.insertRow();
+      row.insertCell().textContent = index + 1;
+      row.insertCell().textContent = model;
+      row.insertCell().textContent = counts.gold;
+      row.insertCell().textContent = counts.silver;
+      row.insertCell().textContent = counts.bronze;
+      row.insertCell().textContent = counts.gold + counts.silver + counts.bronze;
+      row.insertCell().textContent = counts.overall;
+    });
+
+    const container = document.getElementById('medal-leaderboard');
+    container.innerHTML = '';
+    container.appendChild(table);
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    addMedalsToLeaderboard('table1');
+    addMedalsToLeaderboard('table2');
+    generateMedalLeaderboard();
+  });
+
+
+</script> -->
+
+
+
+
+
+
+<style>
+  .hidden {
+      display: none;
+  }
+  .sortable:hover {
+      cursor: pointer;
+  }
+  .asc::after {
+      content: ' ↑';
+  }
+  .desc::after {
+      content: ' ↓';
+  }
+  #toggleButton {
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    color: #555555;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 25px; 
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition-duration: 0.4s;
+  }
+
+  #toggleButton:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); /* 鼠标悬停时的阴影效果 */
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 71%;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+  }
+
+  th, td {
+      text-align: left;
+      padding: 8px;
+  }
+
+  th {
+      background-color: #f2f2f2;
+      border-bottom: 2px solid #ddd;
+  }
+
+  td:hover {background-color: #ffffff;}
+  
+  .medal-icon {
+    width: 20px;
+    height: 20px;
+  }
+  .ranking-icon {
+    width: 40px;
+    height: 20px;
+  }
+  .header-cell {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .header-row th{
+    background-color: #fff9c4;
+  }
+  .columns {
+    display: flex;
+    justify-content: center;
+    overflow-x: auto;
+    width: 100%;
+  }
+
+  .column {
+    flex: 1;
+    min-width: 100%;
+  }
+
+  table {
+/*     width: max-content; */
+    width: 71%;
+  }
+
+  .centered-footer {
+    text-align: center;
+  }
+
+
+</style>
+
+
+
+
 </body>
 </html>
