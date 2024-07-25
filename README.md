@@ -1,5 +1,5 @@
 # Safety-J: Evaluating Safety with Critique
-This is the official repository for 
+This is the official repository for [**SAFETY-J: Evaluating Safety with Critique**](https://arxiv.org/abs/2407.17075).
 
 
 ## 🔥 News
