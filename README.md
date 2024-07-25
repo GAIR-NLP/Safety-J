@@ -3,7 +3,7 @@ This is the official repository for [**SAFETY-J: Evaluating Safety with Critique
 
 
 ## 🔥 News
-- [2024/07/15]  We release the preprint paper on Arxiv, Safety-J's model weights, data for training and six testing tasks.
+- [2024/07/25]  We release the preprint paper on Arxiv, Safety-J's model weights, data for training and six testing tasks.
 
 ## 📋 Table of Contents
 
