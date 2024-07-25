@@ -116,7 +116,7 @@
           <div class="publication-links">
             <!-- PDF Link. -->
             <span class="link-block">
-              <a href="https://arxiv.org/pdf/" target="_blank"
+              <a href="https://arxiv.org/abs/2407.17075" target="_blank"
                   class="external-link button is-normal is-rounded is-dark">
                 <span class="icon">
                     <i class="fas fa-file-pdf"></i>
@@ -135,7 +135,7 @@
             </span>
             <!-- Model Link. -->
             <span class="link-block">
-              <a href="https://huggingface.co/" target="_blank"
+              <a href="https://huggingface.co/GAIR/Safety-J-v5" target="_blank"
                   class="external-link button is-normal is-rounded is-dark">
                 <span class="icon">
                   <p style="font-size:18px">🤗</p>
@@ -269,7 +269,7 @@
               </tr>
               <tr style="background-color: rgba(249, 242, 248, 1);">
       <td style="text-align: left;">
-        <a href="https://huggingface.co/liuyx0903/Safety-J_v5">
+        <a href="https://huggingface.co/GAIR/Safety-J-v5">
           <b>Safety-J (7B)</b>
         </a>
       </td>
@@ -475,167 +475,6 @@
     </div>
   </div>
 </footer>
-<!-- 
-<script>
-  function changeButtonText() {
-    var button = document.getElementById('toggleButton');
-    if (button.innerHTML.includes("Validation Set Leaderboard")) {
-      button.innerHTML = "<b style='font-size: larger;'>Test Set Leaderboard</b> (Click to Switch)";
-    } else {
-      button.innerHTML = "<b style='font-size: larger;'>Validation Set Leaderboard</b> (Click to Switch)";
-    }
-  }
-
-  function sortTableByOverall(tableId) {
-    var table = document.getElementById(tableId);
-    var rows = Array.from(table.rows).slice(1);
-
-    rows.sort(function(a, b) {
-      var cellA = parseFloat(a.cells[3].innerText);
-      var cellB = parseFloat(b.cells[3].innerText);
-      return cellB - cellA;
-    });
-
-    rows.forEach(function(row) {
-      table.tBodies[0].appendChild(row);
-    });
-  }
-
-  document.addEventListener('DOMContentLoaded', function() {
-    sortTableByOverall('table1');
-    sortTableByOverall('table2');
-  });
-
-  function toggleTables() {
-    var table1 = document.getElementById('table1');
-    var table2 = document.getElementById('table2');
-    table1.classList.toggle('hidden');
-    table2.classList.toggle('hidden');
-  }
-
-  document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('toggleButton').addEventListener('click', toggleTables);
-  });
-
-  function addMedalsToLeaderboard(tableId) {
-    const table = document.getElementById(tableId);
-    const rows = Array.from(table.rows).slice(1);
-
-    rows.sort((a, b) => parseFloat(b.cells[3].innerText) - parseFloat(a.cells[3].innerText));
-
-    rows.forEach((row, index) => {
-      const modelNameCell = row.cells[0];
-      let medal = '';
-      if (index === 0) {
-        medal = ' 🥇';
-      } else if (index === 1) {
-        medal = ' 🥈';
-      } else if (index === 2) {
-        medal = ' 🥉';
-      }
-      modelNameCell.innerHTML += medal;
-    });
-
-    rows.forEach(row => {
-      table.tBodies[0].appendChild(row);
-    });
-  }
-
-  function calculateMedalCounts() {
-    const table = document.getElementById('table2');
-    const rows = Array.from(table.rows).slice(1);
-
-    const medalCounts = {};
-
-    rows.forEach(row => {
-      const modelName = row.cells[0].innerText.trim().replace(/ 🥇| 🥈| 🥉/g, '');
-      if (!medalCounts[modelName]) {
-        medalCounts[modelName] = { gold: 0, silver: 0, bronze: 0, overall: parseFloat(row.cells[3].innerText) };
-      }
-    });
-
-    const disciplines = ['Math', 'Physics', 'Chemistry', 'Biology', 'Geography', 'Astronomy', 'CS'];
-    disciplines.forEach((discipline, index) => {
-      const scores = rows.map(row => ({
-        model: row.cells[0].innerText.trim().replace(/ 🥇| 🥈| 🥉/g, ''),
-        score: parseFloat(row.cells[4 + index].innerText)
-      }));
-      scores.sort((a, b) => b.score - a.score);
-      
-      if (scores.length > 0) medalCounts[scores[0].model].gold += 1;
-      if (scores.length > 1) medalCounts[scores[1].model].silver += 1;
-      if (scores.length > 2) medalCounts[scores[2].model].bronze += 1;
-    });
-
-    const sortedMedalCounts = Object.entries(medalCounts).sort((a, b) => {
-      if (b[1].gold !== a[1].gold) return b[1].gold - a[1].gold;
-      if (b[1].silver !== a[1].silver) return b[1].silver - a[1].silver;
-      if (b[1].bronze !== a[1].bronze) return b[1].bronze - a[1].bronze;
-      return b[1].overall - a[1].overall;
-    });
-
-    return sortedMedalCounts;
-  }
-
-  function generateMedalLeaderboard() {
-    const sortedMedalCounts = calculateMedalCounts();
-
-    const table = document.createElement('table');
-    table.classList.add('table', 'is-striped', 'is-hoverable');
-
-    const headerRow = table.insertRow();
-    headerRow.classList.add('header-row');
-
-    ['Rank', 'Model', 'Gold', 'Silver', 'Bronze', 'Total', 'Overall'].forEach((text, index) => {
-      const cell = document.createElement('th');
-      cell.classList.add('header-cell');
-
-      if (text === 'Gold') {
-        const img = document.createElement('img');
-        img.src = 'static/images/gold_medal.png';
-        img.classList.add('medal-icon');
-        cell.appendChild(img);
-      } else if (text === 'Silver') {
-        const img = document.createElement('img');
-        img.src = 'static/images/silver_medal.png';
-        img.classList.add('medal-icon');
-        cell.appendChild(img);
-      } else if (text === 'Bronze') {
-        const img = document.createElement('img');
-        img.src = 'static/images/bronze_medal.png';
-        img.classList.add('medal-icon');
-        cell.appendChild(img);
-      } else {
-        cell.textContent = text;
-      }
-    
-      headerRow.appendChild(cell);
-    });
-
-    sortedMedalCounts.forEach(([model, counts], index) => {
-      const row = table.insertRow();
-      row.insertCell().textContent = index + 1;
-      row.insertCell().textContent = model;
-      row.insertCell().textContent = counts.gold;
-      row.insertCell().textContent = counts.silver;
-      row.insertCell().textContent = counts.bronze;
-      row.insertCell().textContent = counts.gold + counts.silver + counts.bronze;
-      row.insertCell().textContent = counts.overall;
-    });
-
-    const container = document.getElementById('medal-leaderboard');
-    container.innerHTML = '';
-    container.appendChild(table);
-  }
-
-  document.addEventListener('DOMContentLoaded', function() {
-    addMedalsToLeaderboard('table1');
-    addMedalsToLeaderboard('table2');
-    generateMedalLeaderboard();
-  });
-
-
-</script> -->
 
 
 
