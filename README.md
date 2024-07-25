@@ -88,7 +88,7 @@ Our critique-level test sets are divided into English and Chinese datasets, sour
 1. [DiaSafety](https://github.com/thu-coai/DiaSafety)
 2. [Flames](https://github.com/AIFlames/Flames)
 
-For specific information about how these datasets are used in our test sets, please refer to [our paper]().
+For specific information about how these datasets are used in our test sets, please refer to [our paper](https://arxiv.org/abs/2407.17075).
 
 ### 📘 Usage
 
