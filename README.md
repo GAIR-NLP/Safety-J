@@ -247,13 +247,10 @@ def calculate_metrics(llm, data, reference_data, sampling_params, lang):
 Please cite the repo or the paper if the model/code/data in this repo is helpful to you.
 
 ```
-@misc{liu2024safetyjevaluatingsafetycritique,
-      title={SAFETY-J: Evaluating Safety with Critique}, 
-      author={Yixiu Liu and Yuxiang Zheng and Shijie Xia and Yuan Guo and Jiajun Li and Yi Tu and Chaoling Song and Pengfei Liu},
-      year={2024},
-      eprint={2407.17075},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL},
-      url={https://arxiv.org/abs/2407.17075}, 
+@article{liu2024safety,
+  title={SAFETY-J: Evaluating Safety with Critique},
+  author={Liu, Yixiu and Zheng, Yuxiang and Xia, Shijie and Guo, Yuan and Li, Jiajun and Tu, Yi and Song, Chaoling and Liu, Pengfei},
+  journal={arXiv preprint arXiv:2407.17075},
+  year={2024}
 }
 ```
